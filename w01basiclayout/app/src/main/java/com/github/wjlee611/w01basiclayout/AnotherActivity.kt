@@ -1,21 +1,20 @@
 package com.github.wjlee611.w01basiclayout
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.github.wjlee611.w01basiclayout.databinding.ActivityMainBinding
+import com.github.wjlee611.w01basiclayout.databinding.ActivityAnotherBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class AnotherActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAnotherBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityAnotherBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -23,9 +22,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.imageView4.setOnClickListener {
-            val intent = Intent(this, AnotherActivity::class.java)
-            startActivity(intent)
+        binding.button.setOnClickListener {
+            finish()
         }
     }
 }
