@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.W02ActivityFragment" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.W02ActivityFragment" parent="Base.Theme.W02ActivityFragment" />
+    
+    <!--  Splash Screen Theme  -->
+    <style name="AppTheme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primaryBlue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/widget_black_play</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.W02ActivityFragment</item>
+    </style>
+</resources>
