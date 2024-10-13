@@ -1,7 +1,11 @@
 package com.github.wjlee611.w02activityfragment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
@@ -22,6 +26,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         // 바텀 네비 및 프래그먼트 초기화
         initBottomNavigation()
+
+        binding.mainPlayerCl.setOnClickListener {
+            val intent = Intent(this,  SongActivity::class.java)
+            val bundle = Bundle()
+            bundle.putString("title", binding.mainPlayerTitleTv.text.toString())
+            bundle.putString("singer", binding.mainPlayerSingerTv.text.toString())
+            intent.putExtras(bundle)
+            getResultBundle.launch(intent)
+        }
     }
 
     private fun initBottomNavigation(){
@@ -63,5 +76,15 @@ class MainActivity : AppCompatActivity() {
             )
             .replace(binding.fragmentContainer.id, fragment)
             .commit()
+    }
+
+    private val getResultBundle = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val returnBundle = result.data?.extras
+            val title = returnBundle?.getString("title") ?: ""
+            Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
+        }
     }
 }

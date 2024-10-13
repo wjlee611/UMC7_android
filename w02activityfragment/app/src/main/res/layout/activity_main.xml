@@ -36,6 +36,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/main_player_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
@@ -43,10 +44,10 @@
                 android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/main_player_singer_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-
                 android:text="가수"/>
 
         </LinearLayout>

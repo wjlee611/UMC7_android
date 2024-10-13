@@ -6,7 +6,7 @@
     </style>
 
     <style name="Theme.W02ActivityFragment" parent="Base.Theme.W02ActivityFragment" />
-    
+
     <!--  Splash Screen Theme  -->
     <style name="AppTheme.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/primaryBlue</item>
