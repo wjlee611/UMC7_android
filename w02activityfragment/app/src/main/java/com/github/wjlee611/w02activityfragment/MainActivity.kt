@@ -27,11 +27,16 @@ class MainActivity : AppCompatActivity() {
         // 바텀 네비 및 프래그먼트 초기화
         initBottomNavigation()
 
+        val song = Song(binding.mainPlayerTitleTv.text.toString(), binding.mainPlayerSingerTv.text.toString(), 0, 60, false)
+
         binding.mainPlayerCl.setOnClickListener {
             val intent = Intent(this,  SongActivity::class.java)
             val bundle = Bundle()
-            bundle.putString("title", binding.mainPlayerTitleTv.text.toString())
-            bundle.putString("singer", binding.mainPlayerSingerTv.text.toString())
+            bundle.putString("title", song.title)
+            bundle.putString("singer", song.singer)
+            bundle.putInt("second", song.second)
+            bundle.putInt("playTime", song.playTime)
+            bundle.putBoolean("isPlaying", song.isPlaying)
             intent.putExtras(bundle)
             getResultBundle.launch(intent)
         }
