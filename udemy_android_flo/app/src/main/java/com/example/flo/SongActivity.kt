@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.flo.data.entities.Song
 import com.example.flo.databinding.ActivitySongBinding
 import com.google.gson.Gson
 
